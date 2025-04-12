@@ -1,0 +1,61 @@
+Mutatest diagnostic summary
+===========================
+ - Source location: C:\Users\ingad\OneDrive\Desktop\SYSC5807X_Final_Project\quadratic-equation-solver-combinatorial-testing\quadratic_combinatorial_testing.py
+ - Test commands: ['py', 'quadratic-equation-solver-combinatorial-testing/quadratic_combinatorial_testing.py']
+ - Mode: s
+ - Excluded files: []
+ - N locations input: 26
+ - Random seed: None
+
+Random sample details
+---------------------
+ - Total locations mutated: 26
+ - Total locations identified: 26
+ - Location sample coverage: 100.00 %
+
+
+Running time details
+--------------------
+ - Clean trial 1 run time: 0:00:00.224721
+ - Clean trial 2 run time: 0:00:00.197451
+ - Mutation trials total run time: 0:00:05.477333
+
+Overall mutation trial summary
+==============================
+ - SURVIVED: 26
+ - TOTAL RUNS: 26
+ - RUN DATETIME: 2025-04-12 15:37:54.323391
+
+
+Mutations by result status
+==========================
+
+
+SURVIVED
+--------
+ - quadratic-equation-solver-combinatorial-testing\quadratic_combinatorial_testing.py: (l: 11, c: 4) - mutation from If_Statement to If_False
+ - quadratic-equation-solver-combinatorial-testing\quadratic_combinatorial_testing.py: (l: 11, c: 7) - mutation from <class 'ast.Eq'> to <class 'ast.LtE'>
+ - quadratic-equation-solver-combinatorial-testing\quadratic_combinatorial_testing.py: (l: 11, c: 7) - mutation from <class 'ast.And'> to <class 'ast.Or'>
+ - quadratic-equation-solver-combinatorial-testing\quadratic_combinatorial_testing.py: (l: 11, c: 18) - mutation from <class 'ast.Eq'> to <class 'ast.GtE'>
+ - quadratic-equation-solver-combinatorial-testing\quadratic_combinatorial_testing.py: (l: 11, c: 29) - mutation from <class 'ast.Eq'> to <class 'ast.Lt'>
+ - quadratic-equation-solver-combinatorial-testing\quadratic_combinatorial_testing.py: (l: 15, c: 4) - mutation from If_Statement to If_False
+ - quadratic-equation-solver-combinatorial-testing\quadratic_combinatorial_testing.py: (l: 15, c: 9) - mutation from <class 'ast.And'> to <class 'ast.Or'>
+ - quadratic-equation-solver-combinatorial-testing\quadratic_combinatorial_testing.py: (l: 15, c: 9) - mutation from <class 'ast.Eq'> to <class 'ast.NotEq'>
+ - quadratic-equation-solver-combinatorial-testing\quadratic_combinatorial_testing.py: (l: 15, c: 20) - mutation from <class 'ast.Eq'> to <class 'ast.LtE'>
+ - quadratic-equation-solver-combinatorial-testing\quadratic_combinatorial_testing.py: (l: 19, c: 4) - mutation from If_Statement to If_True
+ - quadratic-equation-solver-combinatorial-testing\quadratic_combinatorial_testing.py: (l: 19, c: 9) - mutation from <class 'ast.Eq'> to <class 'ast.NotEq'>
+ - quadratic-equation-solver-combinatorial-testing\quadratic_combinatorial_testing.py: (l: 20, c: 16) - mutation from <class 'ast.Div'> to <class 'ast.Pow'>
+ - quadratic-equation-solver-combinatorial-testing\quadratic_combinatorial_testing.py: (l: 25, c: 23) - mutation from <class 'ast.Sub'> to <class 'ast.Mod'>
+ - quadratic-equation-solver-combinatorial-testing\quadratic_combinatorial_testing.py: (l: 25, c: 24) - mutation from <class 'ast.Pow'> to <class 'ast.Mult'>
+ - quadratic-equation-solver-combinatorial-testing\quadratic_combinatorial_testing.py: (l: 25, c: 35) - mutation from <class 'ast.Mult'> to <class 'ast.FloorDiv'>
+ - quadratic-equation-solver-combinatorial-testing\quadratic_combinatorial_testing.py: (l: 25, c: 35) - mutation from <class 'ast.Mult'> to <class 'ast.Add'>
+ - quadratic-equation-solver-combinatorial-testing\quadratic_combinatorial_testing.py: (l: 31, c: 16) - mutation from <class 'ast.Div'> to <class 'ast.FloorDiv'>
+ - quadratic-equation-solver-combinatorial-testing\quadratic_combinatorial_testing.py: (l: 31, c: 17) - mutation from <class 'ast.Add'> to <class 'ast.Sub'>
+ - quadratic-equation-solver-combinatorial-testing\quadratic_combinatorial_testing.py: (l: 31, c: 35) - mutation from <class 'ast.Mult'> to <class 'ast.Sub'>
+ - quadratic-equation-solver-combinatorial-testing\quadratic_combinatorial_testing.py: (l: 32, c: 16) - mutation from <class 'ast.Div'> to <class 'ast.Sub'>
+ - quadratic-equation-solver-combinatorial-testing\quadratic_combinatorial_testing.py: (l: 32, c: 17) - mutation from <class 'ast.Sub'> to <class 'ast.Add'>
+ - quadratic-equation-solver-combinatorial-testing\quadratic_combinatorial_testing.py: (l: 32, c: 35) - mutation from <class 'ast.Mult'> to <class 'ast.Div'>
+ - quadratic-equation-solver-combinatorial-testing\quadratic_combinatorial_testing.py: (l: 35, c: 8) - mutation from If_Statement to If_True
+ - quadratic-equation-solver-combinatorial-testing\quadratic_combinatorial_testing.py: (l: 35, c: 11) - mutation from <class 'ast.Eq'> to <class 'ast.NotEq'>
+ - quadratic-equation-solver-combinatorial-testing\quadratic_combinatorial_testing.py: (l: 65, c: 10) - mutation from <class 'ast.Mult'> to <class 'ast.Div'>
+ - quadratic-equation-solver-combinatorial-testing\quadratic_combinatorial_testing.py: (l: 68, c: 17) - mutation from <class 'ast.Sub'> to <class 'ast.FloorDiv'>
