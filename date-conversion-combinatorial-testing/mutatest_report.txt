@@ -1,0 +1,37 @@
+Mutatest diagnostic summary
+===========================
+ - Source location: C:\Users\ingad\OneDrive\Desktop\SYSC5807X_Final_Project\date-conversion-combinatorial-testing\date_conversion_combinatorial_testing.py
+ - Test commands: ['py', 'date-conversion-combinatorial-testing/date_conversion_combinatorial_testing.py']
+ - Mode: s
+ - Excluded files: []
+ - N locations input: 26
+ - Random seed: None
+
+Random sample details
+---------------------
+ - Total locations mutated: 2
+ - Total locations identified: 2
+ - Location sample coverage: 100.00 %
+
+
+Running time details
+--------------------
+ - Clean trial 1 run time: 0:00:00.240564
+ - Clean trial 2 run time: 0:00:00.258178
+ - Mutation trials total run time: 0:00:00.497572
+
+Overall mutation trial summary
+==============================
+ - SURVIVED: 2
+ - TOTAL RUNS: 2
+ - RUN DATETIME: 2025-04-12 16:35:50.188798
+
+
+Mutations by result status
+==========================
+
+
+SURVIVED
+--------
+ - date-conversion-combinatorial-testing\date_conversion_combinatorial_testing.py: (l: 41, c: 10) - mutation from <class 'ast.Mult'> to <class 'ast.Div'>
+ - date-conversion-combinatorial-testing\date_conversion_combinatorial_testing.py: (l: 44, c: 17) - mutation from <class 'ast.Sub'> to <class 'ast.Div'>
