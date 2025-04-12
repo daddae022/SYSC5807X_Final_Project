@@ -1,0 +1,61 @@
+Mutatest diagnostic summary
+===========================
+ - Source location: C:\Users\ingad\OneDrive\Desktop\SYSC5807X_Final_Project\quadratic-equation-solver-metamorphic-testing\quadratic_metamorphic_testing.py
+ - Test commands: ['py', 'quadratic-equation-solver-metamorphic-testing/quadratic_metamorphic_testing.py']
+ - Mode: s
+ - Excluded files: []
+ - N locations input: 26
+ - Random seed: None
+
+Random sample details
+---------------------
+ - Total locations mutated: 26
+ - Total locations identified: 42
+ - Location sample coverage: 61.90 %
+
+
+Running time details
+--------------------
+ - Clean trial 1 run time: 0:00:00.219966
+ - Clean trial 2 run time: 0:00:00.193418
+ - Mutation trials total run time: 0:00:05.807520
+
+Overall mutation trial summary
+==============================
+ - SURVIVED: 26
+ - TOTAL RUNS: 26
+ - RUN DATETIME: 2025-04-12 16:27:47.443255
+
+
+Mutations by result status
+==========================
+
+
+SURVIVED
+--------
+ - quadratic-equation-solver-metamorphic-testing\quadratic_metamorphic_testing.py: (l: 10, c: 4) - mutation from If_Statement to If_True
+ - quadratic-equation-solver-metamorphic-testing\quadratic_metamorphic_testing.py: (l: 10, c: 7) - mutation from <class 'ast.Eq'> to <class 'ast.NotEq'>
+ - quadratic-equation-solver-metamorphic-testing\quadratic_metamorphic_testing.py: (l: 10, c: 18) - mutation from <class 'ast.Eq'> to <class 'ast.LtE'>
+ - quadratic-equation-solver-metamorphic-testing\quadratic_metamorphic_testing.py: (l: 10, c: 29) - mutation from <class 'ast.Eq'> to <class 'ast.GtE'>
+ - quadratic-equation-solver-metamorphic-testing\quadratic_metamorphic_testing.py: (l: 12, c: 20) - mutation from <class 'ast.Eq'> to <class 'ast.Lt'>
+ - quadratic-equation-solver-metamorphic-testing\quadratic_metamorphic_testing.py: (l: 14, c: 9) - mutation from <class 'ast.Eq'> to <class 'ast.LtE'>
+ - quadratic-equation-solver-metamorphic-testing\quadratic_metamorphic_testing.py: (l: 15, c: 16) - mutation from <class 'ast.Div'> to <class 'ast.Add'>
+ - quadratic-equation-solver-metamorphic-testing\quadratic_metamorphic_testing.py: (l: 17, c: 24) - mutation from <class 'ast.Pow'> to <class 'ast.Add'>
+ - quadratic-equation-solver-metamorphic-testing\quadratic_metamorphic_testing.py: (l: 17, c: 35) - mutation from <class 'ast.Mult'> to <class 'ast.Sub'>
+ - quadratic-equation-solver-metamorphic-testing\quadratic_metamorphic_testing.py: (l: 17, c: 35) - mutation from <class 'ast.Mult'> to <class 'ast.Sub'>
+ - quadratic-equation-solver-metamorphic-testing\quadratic_metamorphic_testing.py: (l: 20, c: 16) - mutation from <class 'ast.Div'> to <class 'ast.Mult'>
+ - quadratic-equation-solver-metamorphic-testing\quadratic_metamorphic_testing.py: (l: 21, c: 35) - mutation from <class 'ast.Mult'> to <class 'ast.Mod'>
+ - quadratic-equation-solver-metamorphic-testing\quadratic_metamorphic_testing.py: (l: 23, c: 8) - mutation from If_Statement to If_False
+ - quadratic-equation-solver-metamorphic-testing\quadratic_metamorphic_testing.py: (l: 33, c: 4) - mutation from If_Statement to If_True
+ - quadratic-equation-solver-metamorphic-testing\quadratic_metamorphic_testing.py: (l: 33, c: 7) - mutation from <class 'ast.NotEq'> to <class 'ast.Eq'>
+ - quadratic-equation-solver-metamorphic-testing\quadratic_metamorphic_testing.py: (l: 34, c: 15) - mutation from False to True
+ - quadratic-equation-solver-metamorphic-testing\quadratic_metamorphic_testing.py: (l: 37, c: 8) - mutation from If_Statement to If_True
+ - quadratic-equation-solver-metamorphic-testing\quadratic_metamorphic_testing.py: (l: 37, c: 11) - mutation from <class 'ast.Gt'> to <class 'ast.Eq'>
+ - quadratic-equation-solver-metamorphic-testing\quadratic_metamorphic_testing.py: (l: 37, c: 15) - mutation from <class 'ast.Sub'> to <class 'ast.Div'>
+ - quadratic-equation-solver-metamorphic-testing\quadratic_metamorphic_testing.py: (l: 39, c: 11) - mutation from True to False
+ - quadratic-equation-solver-metamorphic-testing\quadratic_metamorphic_testing.py: (l: 47, c: 6) - mutation from <class 'ast.Mult'> to <class 'ast.Sub'>
+ - quadratic-equation-solver-metamorphic-testing\quadratic_metamorphic_testing.py: (l: 51, c: 63) - mutation from <class 'ast.Mult'> to <class 'ast.Add'>
+ - quadratic-equation-solver-metamorphic-testing\quadratic_metamorphic_testing.py: (l: 60, c: 6) - mutation from <class 'ast.Mult'> to <class 'ast.Mod'>
+ - quadratic-equation-solver-metamorphic-testing\quadratic_metamorphic_testing.py: (l: 66, c: 6) - mutation from <class 'ast.Mult'> to <class 'ast.Pow'>
+ - quadratic-equation-solver-metamorphic-testing\quadratic_metamorphic_testing.py: (l: 72, c: 6) - mutation from <class 'ast.Mult'> to <class 'ast.Add'>
+ - quadratic-equation-solver-metamorphic-testing\quadratic_metamorphic_testing.py: (l: 75, c: 17) - mutation from <class 'ast.Sub'> to <class 'ast.Mod'>
