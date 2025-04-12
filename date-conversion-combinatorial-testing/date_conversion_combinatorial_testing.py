@@ -1,3 +1,8 @@
+import time
+
+start_time = time.time()
+
+
 from datetime import datetime
 
 # Function to convert date from YYYY-MM-DD to DD/MM/YYYY
@@ -34,3 +39,7 @@ for test_id, input_date in test_cases:
     output_date = convert_date_format(input_date)
     print(f"{test_id}: Input Date = {input_date} | Converted Output = {output_date}")
     print("-" * 50)
+
+end_time = time.time()
+execution_time = end_time - start_time
+print("Execution Time:", execution_time, "seconds")
