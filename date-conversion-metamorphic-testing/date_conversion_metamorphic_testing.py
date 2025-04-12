@@ -1,74 +1,116 @@
 import time
+import re
+from datetime import datetime, timedelta
 
 start_time = time.time()
 
-from datetime import datetime, timedelta
-
-
-# Function to convert date from YYYY-MM-DD to DD/MM/YYYY
-def convert_date_format(input_date):
+# ========================================
+# Date Conversion Function
+# Converts YYYY-MM-DD to DD/MM/YYYY
+# ========================================
+def convert_date(date_str):
     try:
-        date_obj = datetime.strptime(input_date, "%Y-%m-%d")
+        # Parse input date
+        date_obj = datetime.strptime(date_str, "%Y-%m-%d")
+
+        # Additional validation
+        if not (1 <= date_obj.month <= 12):
+            return "Invalid Date"
+        if not (1 <= date_obj.day <= 31):
+            return "Invalid Date"
+
         return date_obj.strftime("%d/%m/%Y")
-    except ValueError:
+    except Exception:
         return "Invalid Date"
 
-
 print("Metamorphic Testing for Date Conversion Program\n")
-print("=" * 50)
 
-# MR1: Swapping formats twice should return original input
+# ========================================
+# Seed Test Case
 seed_date = "2023-04-15"
-converted = convert_date_format(seed_date)
-
-# Converting back from DD/MM/YYYY to YYYY-MM-DD
-try:
-    date_obj = datetime.strptime(converted, "%d/%m/%Y")
-    reconverted = date_obj.strftime("%Y-%m-%d")
-except ValueError:
-    reconverted = "Invalid Date"
-
-print("MR1 - Original Date:", seed_date)
-print("Converted:", converted)
-print("Reconverted:", reconverted)
-print("MR1 Passed:", seed_date == reconverted)
+converted_seed = convert_date(seed_date)
+print("Seed Date:", seed_date)
+print("Converted:", converted_seed)
 print("=" * 50)
 
-# MR2: Adding leading zeros
-seed_date_no_zeros = "2023-4-5"
-seed_date_with_zeros = "2023-04-05"
+# MR1: Reversibility Test
+def reverse_conversion(date_str):
+    try:
+        date_obj = datetime.strptime(convert_date(date_str), "%d/%m/%Y")
+        return date_obj.strftime("%Y-%m-%d")
+    except Exception:
+        return "Invalid Date"
 
-output1 = convert_date_format(seed_date_no_zeros)
-output2 = convert_date_format(seed_date_with_zeros)
-
-print("MR2 - No Leading Zeros Output:", output1)
-print("MR2 - With Leading Zeros Output:", output2)
-print("MR2 Passed:", output1 == output2)
+reconverted = reverse_conversion(seed_date)
+print("MR1 - Reconverted:", reconverted)
+print("MR1 Passed:", reconverted == seed_date)
 print("=" * 50)
 
-# MR3: Increasing day and checking date rollover
-seed_date = "2023-01-31"
-try:
-    date_obj = datetime.strptime(seed_date, "%Y-%m-%d")
-    new_date_obj = date_obj + timedelta(days=1)
-    new_date = new_date_obj.strftime("%Y-%m-%d")
-    output = convert_date_format(new_date)
-except ValueError:
-    output = "Invalid Date"
-
-print("MR3 - Next Day of", seed_date, "is", new_date)
-print("Converted Output:", output)
+# MR2: Consistency with Leading Zeros
+output_with_zeros = convert_date("2023-04-05")
+output_without_zeros = convert_date("2023-4-5")
+print("MR2 - With Leading Zeros Output:", output_with_zeros)
+print("MR2 - Without Leading Zeros Output:", output_without_zeros)
+print("MR2 Passed:", output_with_zeros == output_without_zeros)
 print("=" * 50)
 
-# MR4: Invalid Input Always Returns "Invalid Date"
-invalid_inputs = ["abcd-ef-gh", "2023-15-99", "2023/04/15", ""]
+# MR3: Next Day Relation
+def next_day(date_str):
+    try:
+        date_obj = datetime.strptime(date_str, "%Y-%m-%d")
+        next_day_obj = date_obj + timedelta(days=1)
+        return next_day_obj.strftime("%Y-%m-%d")
+    except Exception:
+        return "Invalid Date"
 
-for invalid_date in invalid_inputs:
-    output = convert_date_format(invalid_date)
-    print(f"MR4 - Input: {invalid_date} | Output: {output} | Passed:", output == "Invalid Date")
-
+next_date = next_day("2023-01-31")
+converted_next_date = convert_date(next_date)
+print("MR3 - Next Day of 2023-01-31 is", next_date)
+print("Converted Output:", converted_next_date)
 print("=" * 50)
+
+# MR4: Invalid Inputs
+invalid_inputs = ["abcd-ef-gh", "2023-15-99", "", "2023/04/15"]
+for input_str in invalid_inputs:
+    output = convert_date(input_str)
+    print(f"MR4 - Input: {input_str} | Output: {output} | Passed: {output == 'Invalid Date'}")
+print("=" * 50)
+
+# ========================================
+# Enhanced Tests for Mutation Score Improvement
+# ========================================
+
+print("Enhanced Tests for Mutation Testing:\n")
+
+# Output Format Check
+def test_output_format():
+    output = convert_date("2023-04-15")
+    assert re.match(r"\d{2}/\d{2}/\d{4}", output), "Output format mismatch"
+
+test_output_format()
+
+# Earliest Valid Date
+def test_earliest_date():
+    output = convert_date("0001-01-01")
+    assert output == "01/01/0001", "Earliest date conversion failed"
+
+test_earliest_date()
+
+# Latest Reasonable Date
+def test_latest_date():
+    output = convert_date("9999-12-31")
+    assert output == "31/12/9999", "Latest date conversion failed"
+
+test_latest_date()
+
+# Invalid Inputs Handling
+def test_invalid_inputs():
+    for invalid in invalid_inputs:
+        output = convert_date(invalid)
+        assert output == "Invalid Date", f"Failed to detect invalid input: {invalid}"
+
+test_invalid_inputs()
 
 end_time = time.time()
 execution_time = end_time - start_time
-print("Execution Time:", execution_time, "seconds")
+print("\nExecution Time:", execution_time, "seconds")
