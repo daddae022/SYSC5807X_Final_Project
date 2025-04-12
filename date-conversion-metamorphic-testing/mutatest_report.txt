@@ -1,0 +1,45 @@
+Mutatest diagnostic summary
+===========================
+ - Source location: C:\Users\ingad\OneDrive\Desktop\SYSC5807X_Final_Project\date-conversion-metamorphic-testing\date_conversion_metamorphic_testing.py
+ - Test commands: ['py', 'date-conversion-metamorphic-testing/date_conversion_metamorphic_testing.py']
+ - Mode: s
+ - Excluded files: []
+ - N locations input: 26
+ - Random seed: None
+
+Random sample details
+---------------------
+ - Total locations mutated: 10
+ - Total locations identified: 10
+ - Location sample coverage: 100.00 %
+
+
+Running time details
+--------------------
+ - Clean trial 1 run time: 0:00:00.220272
+ - Clean trial 2 run time: 0:00:00.213280
+ - Mutation trials total run time: 0:00:02.237892
+
+Overall mutation trial summary
+==============================
+ - SURVIVED: 10
+ - TOTAL RUNS: 10
+ - RUN DATETIME: 2025-04-12 16:40:56.138038
+
+
+Mutations by result status
+==========================
+
+
+SURVIVED
+--------
+ - date-conversion-metamorphic-testing\date_conversion_metamorphic_testing.py: (l: 18, c: 6) - mutation from <class 'ast.Mult'> to <class 'ast.Mod'>
+ - date-conversion-metamorphic-testing\date_conversion_metamorphic_testing.py: (l: 34, c: 21) - mutation from <class 'ast.Eq'> to <class 'ast.Gt'>
+ - date-conversion-metamorphic-testing\date_conversion_metamorphic_testing.py: (l: 35, c: 6) - mutation from <class 'ast.Mult'> to <class 'ast.Sub'>
+ - date-conversion-metamorphic-testing\date_conversion_metamorphic_testing.py: (l: 46, c: 21) - mutation from <class 'ast.Eq'> to <class 'ast.Gt'>
+ - date-conversion-metamorphic-testing\date_conversion_metamorphic_testing.py: (l: 47, c: 6) - mutation from <class 'ast.Mult'> to <class 'ast.Div'>
+ - date-conversion-metamorphic-testing\date_conversion_metamorphic_testing.py: (l: 53, c: 19) - mutation from <class 'ast.Add'> to <class 'ast.Sub'>
+ - date-conversion-metamorphic-testing\date_conversion_metamorphic_testing.py: (l: 61, c: 6) - mutation from <class 'ast.Mult'> to <class 'ast.Mod'>
+ - date-conversion-metamorphic-testing\date_conversion_metamorphic_testing.py: (l: 68, c: 71) - mutation from <class 'ast.Eq'> to <class 'ast.LtE'>
+ - date-conversion-metamorphic-testing\date_conversion_metamorphic_testing.py: (l: 70, c: 6) - mutation from <class 'ast.Mult'> to <class 'ast.Pow'>
+ - date-conversion-metamorphic-testing\date_conversion_metamorphic_testing.py: (l: 73, c: 17) - mutation from <class 'ast.Sub'> to <class 'ast.Mult'>
