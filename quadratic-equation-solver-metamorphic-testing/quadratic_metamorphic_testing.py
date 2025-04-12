@@ -1,3 +1,7 @@
+import time
+
+start_time = time.time()
+
 import cmath  # To handle real and complex roots
 
 
@@ -66,3 +70,7 @@ zero_c_roots = solve_quadratic(original_a, original_b, 0)
 print("MR4 - Roots when c=0:", zero_c_roots)
 print("MR4 Passed: One of the Roots is Zero =", any(abs(root) < 1e-6 for root in zero_c_roots))
 print("=" * 50)
+
+end_time = time.time()
+execution_time = end_time - start_time
+print("Execution Time:", execution_time, "seconds")
