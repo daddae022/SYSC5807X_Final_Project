@@ -1,3 +1,7 @@
+import time
+
+start_time = time.time()
+
 from datetime import datetime, timedelta
 
 
@@ -64,3 +68,7 @@ for invalid_date in invalid_inputs:
     print(f"MR4 - Input: {invalid_date} | Output: {output} | Passed:", output == "Invalid Date")
 
 print("=" * 50)
+
+end_time = time.time()
+execution_time = end_time - start_time
+print("Execution Time:", execution_time, "seconds")
