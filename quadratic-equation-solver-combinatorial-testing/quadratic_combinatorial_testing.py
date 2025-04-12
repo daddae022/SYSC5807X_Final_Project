@@ -1,3 +1,7 @@
+import time
+
+start_time = time.time()
+
 import cmath  # To handle both real and complex square roots
 
 
@@ -59,3 +63,7 @@ for idx, (a, b, c) in enumerate(test_cases, start=1):
     result = solve_quadratic(a, b, c)
     print("Roots / Output:", result)
     print("-" * 50)
+
+end_time = time.time()
+execution_time = end_time - start_time
+print("Execution Time:", execution_time, "seconds")
