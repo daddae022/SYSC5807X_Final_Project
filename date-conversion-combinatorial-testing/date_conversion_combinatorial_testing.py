@@ -1,45 +1,92 @@
 import time
+import re
+from datetime import datetime
 
 start_time = time.time()
 
-
-from datetime import datetime
-
-# Function to convert date from YYYY-MM-DD to DD/MM/YYYY
-def convert_date_format(input_date):
+# ========================================
+# Date Conversion Function
+# Converts YYYY-MM-DD to DD/MM/YYYY
+# ========================================
+def convert_date(date_str):
     try:
-        # Parse input date string into a datetime object
-        date_obj = datetime.strptime(input_date, "%Y-%m-%d")
-        # Reformat date to DD/MM/YYYY
+        # Parse the input date
+        date_obj = datetime.strptime(date_str, "%Y-%m-%d")
+
+        # Validate components (Extra validation for mutation testing)
+        if not (1 <= date_obj.month <= 12):
+            return "Invalid Date"
+        if not (1 <= date_obj.day <= 31):
+            return "Invalid Date"
+
+        # Convert to desired format
         return date_obj.strftime("%d/%m/%Y")
-    except ValueError:
-        # Handle invalid date formats or non-existing dates
+    except Exception:
         return "Invalid Date"
 
 
-# List of Test Cases (Generated using Combinatorial Testing)
-# Each tuple is in the form (Test Case ID, Input Date)
+# ========================================
+# Existing Combinatorial Test Cases
+# ========================================
 test_cases = [
-    ("TC1", "2023-04-15"),  # Normal Date
-    ("TC2", "2020-02-29"),  # Leap Year Valid
-    ("TC3", "2023-02-29"),  # Invalid Leap Day
-    ("TC4", "2023-01-31"),  # End of Month
-    ("TC5", "2023-00-10"),  # Invalid Month 00
-    ("TC6", "2023-13-10"),  # Invalid Month 13
-    ("TC7", "2023-03-00"),  # Invalid Day 00
-    ("TC8", "2023-03-32"),  # Invalid Day 32
-    ("TC9", "1900-01-01"),  # Boundary Year
-    ("TC10", "2000-02-29"), # Leap Year 2000
+    "2023-04-15",  # Normal date
+    "2020-02-29",  # Leap year
+    "2023-12-01",  # Single digit day
+    "2023-01-31",  # Month boundary
+    "2023-06-00",  # Invalid day
+    "2023-13-10",  # Invalid month
+    "abcd-ef-gh",  # Completely invalid
+    "2023/04/15",  # Wrong separator
+    "",            # Empty string
 ]
 
 print("Date Conversion Program Test Cases:\n")
 
-# Loop to run all test cases
-for test_id, input_date in test_cases:
-    output_date = convert_date_format(input_date)
-    print(f"{test_id}: Input Date = {input_date} | Converted Output = {output_date}")
+for idx, date_str in enumerate(test_cases, start=1):
+    print(f"Test Case {idx}: Input = {date_str}")
+    result = convert_date(date_str)
+    print("Output:", result)
     print("-" * 50)
+
+# ========================================
+# Enhanced Tests for Mutation Testing
+# ========================================
+
+print("\nEnhanced Tests for Mutation Testing:\n")
+
+# Test for Output Pattern Verification
+def test_output_pattern():
+    date_str = "2023-04-15"
+    output = convert_date(date_str)
+    assert re.match(r"\d{2}/\d{2}/\d{4}", output), "Output format mismatch"
+
+test_output_pattern()
+
+# Edge Case: Smallest Valid Date
+def test_earliest_date():
+    date_str = "0001-01-01"
+    output = convert_date(date_str)
+    assert output == "01/01/0001", "Earliest date conversion failed"
+
+test_earliest_date()
+
+# Edge Case: Largest Reasonable Date
+def test_latest_date():
+    date_str = "9999-12-31"
+    output = convert_date(date_str)
+    assert output == "31/12/9999", "Latest date conversion failed"
+
+test_latest_date()
+
+# Test Invalid Inputs
+def test_invalid_inputs():
+    invalid_dates = ["abcd-ef-gh", "2023-15-99", "", "2023/04/15"]
+    for date in invalid_dates:
+        output = convert_date(date)
+        assert output == "Invalid Date", f"Failed to detect invalid input: {date}"
+
+test_invalid_inputs()
 
 end_time = time.time()
 execution_time = end_time - start_time
-print("Execution Time:", execution_time, "seconds")
+print("\nExecution Time:", execution_time, "seconds")

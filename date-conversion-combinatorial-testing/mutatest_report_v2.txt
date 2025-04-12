@@ -1,0 +1,44 @@
+Mutatest diagnostic summary
+===========================
+ - Source location: C:\Users\ingad\OneDrive\Desktop\SYSC5807X_Final_Project\date-conversion-combinatorial-testing\date_conversion_combinatorial_testing.py
+ - Test commands: ['py', 'date-conversion-combinatorial-testing/date_conversion_combinatorial_testing.py']
+ - Mode: s
+ - Excluded files: []
+ - N locations input: 26
+ - Random seed: None
+
+Random sample details
+---------------------
+ - Total locations mutated: 9
+ - Total locations identified: 9
+ - Location sample coverage: 100.00 %
+
+
+Running time details
+--------------------
+ - Clean trial 1 run time: 0:00:00.214240
+ - Clean trial 2 run time: 0:00:00.212023
+ - Mutation trials total run time: 0:00:02.132103
+
+Overall mutation trial summary
+==============================
+ - SURVIVED: 9
+ - TOTAL RUNS: 9
+ - RUN DATETIME: 2025-04-12 17:38:52.395916
+
+
+Mutations by result status
+==========================
+
+
+SURVIVED
+--------
+ - date-conversion-combinatorial-testing\date_conversion_combinatorial_testing.py: (l: 17, c: 8) - mutation from If_Statement to If_True
+ - date-conversion-combinatorial-testing\date_conversion_combinatorial_testing.py: (l: 17, c: 16) - mutation from <class 'ast.LtE'> to <class 'ast.GtE'>
+ - date-conversion-combinatorial-testing\date_conversion_combinatorial_testing.py: (l: 19, c: 8) - mutation from If_Statement to If_True
+ - date-conversion-combinatorial-testing\date_conversion_combinatorial_testing.py: (l: 19, c: 16) - mutation from <class 'ast.LtE'> to <class 'ast.Lt'>
+ - date-conversion-combinatorial-testing\date_conversion_combinatorial_testing.py: (l: 49, c: 10) - mutation from <class 'ast.Mult'> to <class 'ast.Mod'>
+ - date-conversion-combinatorial-testing\date_conversion_combinatorial_testing.py: (l: 69, c: 11) - mutation from <class 'ast.Eq'> to <class 'ast.Gt'>
+ - date-conversion-combinatorial-testing\date_conversion_combinatorial_testing.py: (l: 77, c: 11) - mutation from <class 'ast.Eq'> to <class 'ast.Gt'>
+ - date-conversion-combinatorial-testing\date_conversion_combinatorial_testing.py: (l: 86, c: 15) - mutation from <class 'ast.Eq'> to <class 'ast.Lt'>
+ - date-conversion-combinatorial-testing\date_conversion_combinatorial_testing.py: (l: 91, c: 17) - mutation from <class 'ast.Sub'> to <class 'ast.FloorDiv'>
