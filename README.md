@@ -25,8 +25,15 @@ SYSC5807X_Final_Project/ │
 
 ---
 
+> Note:
+> - The `venv/` folder is excluded from the repository since it contains environment-specific files that can be recreated locally using `python -m venv venv`.
+>
+> - The `.coverage` file and the `htmlcov/` folder are included in the repository for demonstration and grading purposes.
+>   - `.coverage`: Raw coverage data.
+>   - `htmlcov/`: Detailed HTML coverage report generated using Coverage.py.
+>
+> To regenerate the coverage report locally, use the commands provided in the "Run Coverage Analysis" section below.
 
-> Note: Auto-generated folders like `venv/`, `htmlcov/`, and `.coverage` are excluded as they are environment-specific and should be recreated locally.
 
 ---
 
