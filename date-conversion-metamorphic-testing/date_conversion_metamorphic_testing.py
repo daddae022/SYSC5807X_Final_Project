@@ -114,3 +114,35 @@ test_invalid_inputs()
 end_time = time.time()
 execution_time = end_time - start_time
 print("\nExecution Time:", execution_time, "seconds")
+
+print("\nAdditional Tests for Increasing Coverage:\n")
+
+# Already existing tests
+invalid_inputs_extra = [
+    "2023-00-10",  # Invalid month
+    "2023-04-00",  # Invalid day
+    "abcd-ef-gh",  # Invalid format
+    "2023/04/15",  # Wrong separator
+    "",            # Empty string
+]
+
+for input_str in invalid_inputs_extra:
+    output = convert_date(input_str)
+    print(f"Input: {input_str} | Output: {output}")
+    assert output == "Invalid Date", f"Expected 'Invalid Date' for input: {input_str}"
+
+# New test cases to target missing lines
+print("\nFinal Tests for Increasing Coverage:\n")
+
+invalid_boundary_dates = [
+    "2023-00-10",  # Invalid month
+    "2023-13-10",  # Invalid month
+    "2023-04-00",  # Invalid day
+    "2023-04-32",  # Invalid day
+]
+
+for date_str in invalid_boundary_dates:
+    output = convert_date(date_str)
+    print(f"Input: {date_str} | Output: {output}")
+    assert output == "Invalid Date", f"Expected 'Invalid Date' for input: {date_str}"
+
