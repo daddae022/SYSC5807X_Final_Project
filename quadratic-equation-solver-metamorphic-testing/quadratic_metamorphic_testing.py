@@ -98,6 +98,30 @@ def test_invalid_inputs():
 
 test_invalid_inputs()
 
+# Extra Tests for Coverage Improvement
+print("\nExtra Tests to Improve Coverage:\n")
+
+# Test for Infinite Solutions
+result = solve_quadratic(0, 0, 0)
+print("Test Infinite Solutions:", result)
+assert result == "Infinite Solutions"
+
+# Test for No Solution
+result = solve_quadratic(0, 0, 5)
+print("Test No Solution:", result)
+assert result == "No Solution"
+
+# Test for Linear Equation
+result = solve_quadratic(0, 2, 4)
+print("Test Linear Equation:", result)
+assert result == (-2.0,)
+
+# Test for Repeated Roots (Discriminant = 0)
+result = solve_quadratic(1, 2, 1)
+print("Test Repeated Roots:", result)
+assert result == ((-1+0j),)
+
+# Execution Time
 end_time = time.time()
 execution_time = end_time - start_time
 print("\nExecution Time:", execution_time, "seconds")
