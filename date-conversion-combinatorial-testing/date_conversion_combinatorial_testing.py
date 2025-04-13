@@ -49,6 +49,28 @@ for idx, date_str in enumerate(test_cases, start=1):
     print("-" * 50)
 
 # ========================================
+# Extra Tests for Increasing Coverage Score
+# ========================================
+
+print("\nExtra Tests to Increase Coverage for Boundary Month/Day:\n")
+
+boundary_inputs = [
+    "2023-00-10",  # Invalid month
+    "2023-13-10",  # Invalid month
+    "2023-04-00",  # Invalid day
+    "2023-04-32",  # Invalid day
+]
+
+for date_str in boundary_inputs:
+    try:
+        output = convert_date(date_str)
+    except:
+        output = "Invalid Date"
+    print(f"Input: {date_str} | Output: {output}")
+    assert output == "Invalid Date", f"Expected 'Invalid Date' for input: {date_str}"
+
+
+# ========================================
 # Enhanced Tests for Mutation Testing
 # ========================================
 
