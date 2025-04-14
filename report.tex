@@ -1,0 +1,270 @@
+\documentclass[conference]{IEEEtran}
+\IEEEoverridecommandlockouts
+
+\usepackage{cite}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{algorithmic}
+\usepackage{graphicx}
+\usepackage{textcomp}
+\usepackage{xcolor}
+\usepackage{url}
+
+\begin{document}
+
+\title{Applying Combinatorial Testing and Metamorphic Testing for Automated Test Case Generation: A Case Study Analysis}
+
+\author{Diana Addae}
+
+\maketitle
+
+\begin{abstract}
+This project explores the application of Combinatorial Testing and Metamorphic Testing techniques for automated test case generation in software testing. Two case studies were selected: a Quadratic Equation Solver and a Date Conversion Program. Combinatorial Testing was used to generate diverse input combinations for thorough structural coverage, while Metamorphic Testing leveraged metamorphic relations to define expected program behavior under input transformations.
+    
+The project utilized Python for implementation, Mutatest for mutation testing, and Coverage.py for structural coverage analysis. 
+
+Results showed that while Combinatorial Testing achieved higher structural coverage in the initial stages, Metamorphic Testing demonstrated better potential for fault detection through relational properties. Mutation scores remained at 0\% across all files due to the simplicity of the programs and limited test oracles. Coverage scores ranged from 89\% to 100\%, with additional test cases implemented to improve both coverage and mutation scores. Execution time increased slightly after enhancing the test cases; however, performance remained optimal across all programs.
+\end{abstract}
+
+\section{Introduction}
+Automated Software testing plays a critical role in ensuring the reliability, correctness, and robustness of software systems. In modern software engineering, automated test case generation techniques are increasingly used to improve test efficiency, maximize code coverage, and uncover hidden faults.
+
+This project investigates two such techniques — Combinatorial Testing and Metamorphic Testing — and applies them to two case studies: a Quadratic Equation Solver for equations of the form $ax^2 + bx + c = 0$, and a Date Conversion Program that transforms dates from the \texttt{YYYY-MM-DD} format to \texttt{DD/MM/YYYY}.
+
+These programs were selected to explore boundary conditions, input variations, and behavioral properties relevant to testing real-world applications. Combinatorial Testing was used to generate comprehensive input combinations, while Metamorphic Testing leveraged transformation rules to validate program behavior in scenarios lacking clear test oracles.
+
+\section{Testing Techniques and Their Benefits}
+\subsection{Combinatorial Testing}
+Combinatorial Testing is a systematic approach to test case generation where input parameters and their possible values are combined in different ways to explore a wide range of conditions \cite{b4}. The technique is particularly useful when testing software systems with multiple input variables, as it ensures that different combinations of values are considered without requiring exhaustive testing of every possible input permutation.
+
+One of the key benefits of Combinatorial Testing is its ability to efficiently generate a broad set of test cases that cover diverse scenarios. This technique is highly effective in detecting interaction faults, particularly those caused by specific combinations of input values that might not be uncovered through traditional testing methods. Furthermore, Combinatorial Testing provides structured coverage of boundary conditions and edge cases, ensuring that critical input scenarios are adequately tested. Another advantage is that it helps reduce the size of the test suite while maintaining a strong fault detection capability, making it a practical and scalable approach for software testing.
+
+\subsection{Metamorphic Testing}
+Metamorphic Testing (MT) is a property-based testing technique that addresses the oracle problem — situations where it is difficult or impractical to determine the correctness of individual outputs for given inputs. Instead of relying on known expected outputs, Metamorphic Testing defines Metamorphic Relations (MRs), which specify how changes to input values should systematically affect the output. These MRs enable the generation of follow-up test cases from seed inputs, allowing the tester to verify whether the program maintains certain consistency properties under input transformations.
+
+A significant benefit of Metamorphic Testing is its suitability for scenarios where determining correct outputs is challenging or expensive, such as in numerical computations, machine learning models, or systems with large input domains \cite{b7}. MT increases the likelihood of detecting faults related to the consistency, transformation, or invariance of outputs. It allows for the testing of complex scenarios without requiring explicit expected outputs for every test case. Furthermore, Metamorphic Testing is particularly effective in uncovering hidden faults that may be missed by traditional testing techniques, especially in programs where output correctness is difficult to assert directly.
+
+\section{Application of Testing Techniques}
+\subsection{Methodology}
+This project applied Combinatorial Testing and Metamorphic Testing techniques to two case studies: the Quadratic Equation Solver and the Date Conversion Program.
+
+Python was used for the implementation of both case studies. Combinatorial Testing was applied by generating diverse test cases designed to cover a wide range of input conditions, including real roots, complex roots, boundary conditions, invalid inputs, and edge scenarios.
+
+For the Quadratic Equation Solver, Combinatorial Testing explored various combinations of coefficients ($a$, $b$, $c$) to verify the solver's behavior in handling linear equations (when $a=0$), no solution cases, infinite solution scenarios, and quadratic equations with real or complex roots. 
+
+Metamorphic Testing for the Quadratic Solver involved defining Metamorphic Relations (MRs) such as scaling coefficients (multiplying all coefficients by a constant factor), negating coefficients, and swapping coefficients to validate the consistency of the generated roots \cite{b3}.
+
+Similarly, the Date Conversion Program was tested using Combinatorial Testing by covering valid dates, leap years, invalid formats, empty inputs, and boundary conditions like month-end or year-end scenarios. Metamorphic Testing focused on MRs such as reversing the conversion (transforming the converted date back to the original), adding one day to the date, and verifying format consistency.
+
+These methodologies ensured that the generated test cases provided extensive input coverage and validated the expected behavior of both programs under varying conditions.
+
+\subsection{Tools Used}
+Several tools and frameworks were utilized throughout the project to support test case generation, execution, mutation testing, and coverage analysis.
+
+Python was the primary programming language used for implementing both case studies — the Quadratic Equation Solver and the Date Conversion Program. All test cases for Combinatorial Testing and Metamorphic Testing were written and executed in Python.
+
+Mutation Testing was performed using Mutatest, a Python-based mutation testing tool. Mutatest was used to automatically generate mutants by introducing small changes in the source code and executing the existing test suite to evaluate the fault detection capability of the test cases \cite{b6}.
+
+Structural coverage analysis was conducted using \texttt{coverage.py}, a widely-used Python tool for measuring code coverage. The tool was configured to calculate both line coverage and branch coverage, providing insights into parts of the code that were exercised during test execution.
+
+Version control for the project was managed using Git, with the project repository hosted on GitHub. Git enabled efficient source code tracking, version management, and collaboration, while GitHub provided a centralized platform for storing and sharing the project artifacts, including the final report.
+
+Overleaf was used as the LaTeX editor and compilation environment for producing the final IEEE-format report. It provided a collaborative, cloud-based platform for editing, formatting, and exporting the report to PDF.
+
+The project repository was organized into separate folders for each case study, with dedicated Python files for Combinatorial Testing and Metamorphic Testing. Each folder included test scripts, source code, and result artifacts. Automation steps for running the tests, generating coverage reports, and performing mutation testing were documented in the project \texttt{README.md} file. These included commands for executing the test files using Python, generating coverage reports with \texttt{coverage.py}, and running mutation analysis with Mutatest. This structure ensured clarity, reproducibility, and ease of navigation for future development or review.
+
+\section{Discussion of Results}
+This section summarizes the testing outcomes — analyzing test execution results, fault detection, structural coverage, mutation scores, and the improvements made. The test cases for all programs were executed successfully, demonstrating correct handling of normal inputs, boundary conditions, edge cases, and invalid inputs. These outcomes validate the correctness of the implemented solutions prior to conducting mutation testing and coverage analysis.
+
+\subsection{Execution Time Analysis}
+Execution time was measured for all test files using Python's time module. Measurements were taken at two critical phases of the project — first, after the initial set of test cases was implemented, and second, after the test cases were enhanced to improve fault detection and structural coverage. As presented in Table I, this analysis helped assess the performance impact of test suite expansion and validate the efficiency of each testing technique across the two case studies.
+
+\begin{table}[htbp]
+\caption{Execution time results}
+\centering
+\begin{tabular}{|l|l|l|l|}
+\hline
+Case study & Technique & Initial time & Enhanced time \\
+\hline
+Quadratic Solver & Combinatorial & 0.0025s & 0.0041s \\
+Quadratic Solver & Metamorphic   & 0.0016s & 0.0022s \\
+Date Conversion  & Combinatorial & 0.0207s & 0.0223s \\
+Date Conversion  & Metamorphic   & 0.0036s & 0.0043s \\
+\hline
+\end{tabular}
+\end{table}    
+    
+
+\textbf{Execution Time Analysis Summary}:
+The initial execution times recorded for all programs were very minimal, which was expected given the simplicity of the input data and the straightforward operations performed by the programs. At this stage, the test cases were limited to key scenarios covering valid inputs, real roots, complex roots, and basic invalid inputs. However, after enhancing the test cases --- particularly for the purpose of improving mutation scores and coverage --- execution time increased slightly. This was more noticeable in the Quadratic Solver using Combinatorial Testing, where a large number of additional test cases were introduced, including boundary conditions, exception handling, and edge-case validations.
+
+Interestingly, the Date Conversion Program using Metamorphic Testing exhibited a slight improvement in execution time after the test enhancements. This was likely due to code restructuring, optimization of validation checks, and reduced processing overhead in the final version of the program. Overall, the tradeoff between execution time and the robustness of the test suite was considered acceptable, as performance remained optimal across all case studies despite the added test complexity.
+
+\subsection{Fault Detection using Mutation Testing}
+Mutation testing was conducted using Mutatest to evaluate the fault detection capability of the test suite \cite{b5}. The initial test executions were carried out using the base set of test cases without any enhancements. 
+
+As shown in Table II, all mutants survived during this phase, highlighting a gap in the test suite’s ability to detect subtle faults introduced through mutation operators. This outcome was expected due to the simplicity of the program logic and the limited behavioral depth of the initial test cases.
+
+\begin{table}[htbp]
+\caption{Initial mutation testing results}
+\centering
+\begin{tabular}{|l|l|c|c|c|}
+\hline
+Case study & Technique & Total & Killed & Score \\
+\hline
+Quadratic Solver & Combinatorial & 26 & 0 (26 survived) & 0\% \\
+Quadratic Solver & Metamorphic & 26 & 0 (26 survived) & 0\% \\
+Date Conversion & Combinatorial & 2  & 0 (2 survived)  & 0\% \\
+Date Conversion & Metamorphic   & 10 & 0 (10 survived) & 0\% \\
+\hline
+\end{tabular}
+\end{table}
+    
+To address this limitation, the test suites were expanded with additional test cases targeting edge conditions, invalid inputs, and exception scenarios. These improvements were designed to increase the likelihood of triggering and identifying behavioral discrepancies caused by mutations.
+
+However, as illustrated in Table III, all generated mutants still survived despite these enhancements — reaffirming the challenge of fault detection in structurally simple programs with limited execution branches.
+
+\begin{table}[htbp]
+\caption{Mutation testing results after improvement}
+\centering
+\begin{tabular}{|l|l|c|c|c|}
+\hline
+Case study & Technique & Total & Killed & Score \\
+\hline
+Quadratic Solver & Combinatorial & 26 & 0 (26 survived) & 0\% \\
+Quadratic Solver & Metamorphic   & 26 & 0 (26 survived) & 0\% \\
+Date Conversion  & Combinatorial & 9  & 0 (9 survived)  & 0\% \\
+Date Conversion  & Metamorphic   & 17 & 0 (17 survived) & 0\% \\
+\hline
+\end{tabular}
+\end{table}
+    
+
+\subsection{Structural Coverage Analysis}
+Coverage analysis was conducted using coverage.py to evaluate line and branch coverage across all test files. The initial results, shown in Table IV, highlight the baseline coverage scores for each file before additional test enhancements were made. At this stage, most files exhibited strong coverage, although a few gaps remained due to missing edge cases and exception paths.
+
+\begin{table}[htbp]
+\caption{Initial coverage results}
+\centering
+\begin{tabular}{|l|l|c|c|l|}
+\hline
+File & Technique & Line & Branch & Quality \\
+\hline
+quad\_comb & Combinatorial & 100\% & 100\% & Excellent \\
+quad\_meta   & Metamorphic   & 88\%  & Partial & Very good \\
+date\_conv\_comb & Combinatorial & 93\% & Partial & Very good \\
+date\_conv\_meta   & Metamorphic   & 89\% & Partial & Very good \\
+\hline
+\end{tabular}
+\end{table}
+    
+To improve the overall structural coverage, additional test cases were implemented targeting missing conditions, invalid inputs, and boundary scenarios. These enhancements were particularly aimed at increasing branch coverage and reducing the number of uncovered lines. The updated results after these improvements are presented in Table V, showing measurable gains in both line and branch coverage across all files.
+
+\begin{table}[htbp]
+\caption{Coverage results after improvement}
+\centering
+\begin{tabular}{|l|l|c|c|l|}
+\hline
+File & Technique & Line & Branch & Quality \\
+\hline
+quad\_comb & Combinatorial & 100\% & 100\% & Excellent \\
+quad\_meta & Metamorphic   & 99\%  & Improved & Excellent \\
+date\_conv\_comb & Combinatorial & 91\%  & Improved & Very good \\
+date\_conv\_meta & Metamorphic   & 92\%  & Improved & Very good \\
+\hline
+\end{tabular}
+\end{table}
+    
+    
+\subsection{Comparison of Techniques}
+This project applied Combinatorial Testing and Metamorphic Testing techniques to two case studies: the Quadratic Equation Solver and the Date Conversion Program. The comparison between the two techniques is based on execution time, structural coverage, and fault detection capability, with supporting evidence from the results obtained.
+
+In terms of execution time, both techniques demonstrated very low execution times for their respective test cases, indicating efficient performance across all programs. However, Combinatorial Testing generally recorded slightly higher execution times after the test cases were enhanced. This is because Combinatorial Testing required generating a large number of independent test cases to cover various input combinations and edge scenarios. In contrast, Metamorphic Testing generated fewer initial test cases but leveraged Metamorphic Relations (MRs) to create follow-up test cases, resulting in slightly better execution time performance in some instances.
+
+With regard to structural coverage, Combinatorial Testing performed better for the Quadratic Solver, achieving an initial coverage score of 100\%. Metamorphic Testing for the same case study initially had a lower coverage score of 88\%, but after adding additional test cases for invalid inputs and edge conditions, coverage improved to 99\%. For the Date Conversion Program, both techniques achieved high coverage scores --- Combinatorial Testing improved from 93\% to 91\% (slight drop due to code size increase), while Metamorphic Testing improved from 89\% to 92\% after adding extra validation tests.
+
+Fault detection was evaluated using Mutation Testing. Across both techniques and case studies, the mutation scores remained 0\%. This result was primarily due to the simplicity of the programs and the nature of the generated mutants, which were challenging to kill without fundamentally altering the logic of the program. Despite attempts to improve the mutation score by adding additional test cases and validations, all mutants survived across the four files tested.
+
+Overall, Combinatorial Testing provided higher structural coverage in the initial stages due to its exhaustive input-based testing strategy. However, Metamorphic Testing offered a more efficient approach in terms of execution time and demonstrated better performance for generating follow-up test cases that captured specific relational properties. While neither technique was able to achieve a non-zero mutation score in this context, both techniques contributed significantly to improving test robustness, validating program correctness, and enhancing the overall quality of the test suite.
+
+A side-by-side summary of the comparative results for all four test files is presented in Table VI.
+
+\begin{table}[htbp]
+\caption{Comparison summary of techniques}
+\centering
+\begin{tabular}{|l|c|c|c|c|}
+\hline
+Case study & Technique & Execution time & Coverage & Score \\
+\hline
+Quadratic Solver & Comb. & $\sim$0.0041 s & 100\% & 0\% (26) \\
+Quadratic Solver & Meta. & $\sim$0.0022 s & 99\%  & 0\% (26) \\
+Date Conversion  & Comb. & $\sim$0.0223 s & 91\%  & 0\% (9)  \\
+Date Conversion  & Meta. & $\sim$0.0043 s & 92\%  & 0\% (17) \\
+\hline
+\end{tabular}
+\vspace{2mm} % Adds small vertical space
+\textit{Note: Number in brackets indicates survived mutants.}
+\end{table}
+    
+    
+\subsection{Identification of Gaps in Coverage and Fault Detection}    
+Despite achieving high structural coverage scores across most test files, as shown in Tables IV and V, mutation testing results revealed significant gaps in fault detection capabilities.
+
+One key reason for this gap is the simplicity of the case study programs, which had limited computational complexity and straightforward control flow. Many of the mutants generated by the mutation tool involved minor arithmetic operator changes (e.g., replacing + with - or * with /) or conditional operator mutations. Since the programs were designed to produce valid mathematical outputs (especially the Quadratic Solver), many mutant changes did not lead to assertion failures unless specifically captured through specialized oracles or transformation properties.
+
+Comparing the two testing techniques, Combinatorial Testing was more effective in maximizing structural coverage because of its exhaustive exploration of input combinations. However, Metamorphic Testing provided stronger fault detection potential by leveraging metamorphic relations that directly target behavioral properties of the program. For example, in the Date Conversion case study, metamorphic relations were useful in testing properties like reversibility and format consistency --- although they were still insufficient to kill the mutants generated.
+
+In summary, the primary gap identified is that high code coverage does not necessarily guarantee high fault detection ability. While Combinatorial Testing ensures broad input space coverage, Metamorphic Testing offers better potential for discovering faults when metamorphic relations are well-defined. For these case studies, the simplicity of the programs limited the effectiveness of both techniques in killing mutants. Future improvements would involve designing stronger assertion mechanisms or using more sophisticated metamorphic relations targeting numerical accuracy or boundary behavior.
+
+These observations informed a deeper reflection on the strengths and limitations of each technique, as outlined in the following subsections.
+
+\section{Insights, Challenges, Limitations, and Future Improvements}
+
+\subsection{Insights}
+This project provided valuable insights into the practical application of Combinatorial Testing and Metamorphic Testing for software testing. Combinatorial Testing proved particularly effective in generating diverse test scenarios and ensuring high structural coverage, especially for input-driven programs like the Quadratic Equation Solver.
+
+Metamorphic Testing, on the other hand, was especially useful in situations where the correctness of individual outputs was difficult to verify. It enabled the creation of follow-up tests based on established metamorphic relations, ensuring that the program maintained consistent behavior under specific transformations.
+
+Another key insight was recognizing that achieving high code coverage does not automatically translate into high fault detection ability. While coverage scores reached up to 100\% in some cases, the mutation score remained 0\% across all files --- highlighting the importance of designing test cases that target deeper behavioral properties of the code.
+
+\subsection{Challenges}
+One of the main challenges encountered in this project was improving the mutation score. Despite adding numerous edge cases, input variations, and exception handling tests, the generated mutants survived in all test files. This outcome was largely due to the simplicity of the programs and the nature of the mutation operators used, which often introduced changes that did not affect the observable output.
+
+Another challenge involved managing execution time as the number of test cases increased. Enhancing the test suites to improve coverage and mutation scores led to slightly higher execution times, especially in the Combinatorial Testing approach. However, these increases remained within acceptable limits and did not negatively impact program performance.
+
+\subsection{Limitations}
+The primary limitation of this project was the simplicity of the selected case studies. Both the Quadratic Equation Solver and the Date Conversion Program featured minimal control flow complexity and predictable output behavior. This limitation reduced the effectiveness of mutation testing, as most mutants involved arithmetic or logical operator changes that did not directly lead to test failures.
+
+Additionally, the small size and limited functionality of the programs restricted the opportunities for applying advanced testing techniques or detecting subtle defects that might arise in more complex systems.
+
+\subsection{Future Improvements}
+Future work could focus on adopting more advanced testing strategies to enhance fault detection capability. For example, incorporating property-based testing or defining additional metamorphic relations targeting numerical accuracy, performance boundaries, or input-output consistency could lead to better mutation scores.
+
+Moreover, applying these testing techniques to larger, more complex software systems would provide a more rigorous evaluation of their effectiveness. Leveraging automated tools such as Klara \cite{b1} for automated test case generation or Z3 \cite{b2} for constraint solving could also improve the efficiency and scalability of the testing process.
+
+Finally, combining Combinatorial Testing and Metamorphic Testing in a hybrid strategy would likely provide the best balance between high structural coverage and strong fault detection in more sophisticated applications.
+
+\section*{Project Repository}
+The complete source code, test cases, mutation testing results, and coverage analysis for this project are available on GitHub:
+
+\noindent \url{https://github.com/daddae022/SYSC5807X_Final_Project}
+
+\section{References}
+\begin{thebibliography}{00}
+
+\bibitem{b1} Klara: Automatic Test Case Generation for Python. Available: \url{https://github.com/usagitoneko97/klara}
+
+\bibitem{b2} Programming Z3 (The Stanford Z3 Solver Resource). Available: \url{https://theory.stanford.edu/~nikolaj/programmingz3.html}
+
+\bibitem{b3} Chen, T. Y., Huang, D. H., Tse, T. H., Zhou, Z. Q. Case Studies on the Selection of Useful Relations in Metamorphic Testing.
+
+\bibitem{b4} Category-Partition Testing (SFU Course Resource). Available: \url{https://coursys.sfu.ca/2016fa-cmpt-473-d1/pages/CategoryPartition}
+
+\bibitem{b5} Jia, Y., Harman, M. An Analysis and Survey of the Development of Mutation Testing. \textit{IEEE Transactions on Software Engineering}, 2011. Available: \url{https://ieeexplore.ieee.org/document/5398526}
+
+\bibitem{b6} Python Coverage.py Documentation --- Measuring Code Coverage in Python. Available: \url{https://coverage.readthedocs.io/en/6.5.0/}
+
+\bibitem{b7} Segura, S., et al. Metamorphic Testing: A Systematic Literature Review. \textit{IEEE Transactions on Software Engineering}, 2016. Available: \url{https://ieeexplore.ieee.org/document/7372052}
+
+\end{thebibliography}
+
+\end{document}
