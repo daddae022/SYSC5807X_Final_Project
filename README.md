@@ -117,6 +117,9 @@ coverage html
 
 The final project report is available in IEEE format in the `report.tex` file.
 
+## Project Branch Information
+The master branch contains the final project source code and report.
+
 Author
 Diana Addae
 SYSC5807X - Advanced Software Testing
