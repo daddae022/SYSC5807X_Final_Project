@@ -12,17 +12,21 @@ The objective was to generate test cases, improve code coverage, perform mutatio
 
 ## Repository Structure
 
-SYSC5807X_Final_Project/ │ 
-├── quadratic-equation-solver-combinatorial-testing/ │ 
-└── quadratic_combinatorial_testing.py │ 
-├── quadratic-equation-solver-metamorphic-testing/ │ 
-└── quadratic_metamorphic_testing.py │ 
-├── date-conversion-combinatorial-testing/ │ 
-└── date_conversion_combinatorial_testing.py │ 
-├── date-conversion-metamorphic-testing/ │ 
-└── date_conversion_metamorphic_testing.py │ 
-└── README.md
+The repository is organized as follows:
 
+SYSC5807X_Final_Project/ │ 
+├── date-conversion-combinatorial-testing/ │ 
+└── date_conv_comb.py │ 
+├── date-conversion-metamorphic-testing/ │ 
+└── date_conv_meta.py │ 
+├── quadratic-equation-solver-combinatorial-testing/ │ 
+└── quad_comb.py │ 
+├── quadratic-equation-solver-metamorphic-testing/ │ 
+└── quad_meta.py │ 
+├── htmlcov/ # Auto-generated coverage report 
+├── .coverage # Coverage data file 
+├── report.tex # Final project report (IEEE format) 
+└── README.md # Project overview, instructions,
 ---
 
 > Note:
@@ -109,6 +113,10 @@ coverage run --branch quadratic-equation-solver-combinatorial-testing/quadratic_
 coverage report -m
 coverage html
 
+## Project Report
+
+The final project report is available in IEEE format in the `report.tex` file.
+
 Author
 Diana Addae
 SYSC5807X - Advanced Software Testing
@@ -138,3 +146,4 @@ https://coverage.readthedocs.io/en/6.5.0/
 Segura, Santiago, et al.
 Metamorphic testing: A systematic literature review. IEEE Transactions on Software Engineering, 2016.
 https://ieeexplore.ieee.org/document/7372052
+
